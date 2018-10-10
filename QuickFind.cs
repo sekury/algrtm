@@ -1,3 +1,5 @@
+using System;
+
 namespace Algorithms
 {
     public class QuickFind : IUnionFind

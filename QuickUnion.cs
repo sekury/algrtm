@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace Algorithms
 {
@@ -6,6 +7,25 @@ namespace Algorithms
     {
         private int[] id;
         private int[] sz;
+        private bool isAllConnected
+        {
+            get
+            {
+                var count = 0;
+                for (int i = 0; i < id.Length; i++)
+                {
+                    if (id[i] == i)
+                    {
+                        count++;
+                        if (count > 1)
+                        {
+                            return false;
+                        }
+                    }
+                }
+                return count == 1;
+            }
+        }
 
         public WeightedQuickUnionWithPathCompression(int n)
         {
@@ -43,6 +63,20 @@ namespace Algorithms
             {
                 id[j] = i;
                 sz[i] += sz[j];
+            }
+
+            if (isAllConnected)
+            {
+                Console.WriteLine("All elements are connected:");
+                for (int index = 0; index < id.Length; index++)
+                {
+                    Console.Write(index + " ");
+                }
+                Console.WriteLine();
+                Array.ForEach(id, item =>
+                {
+                    Console.Write(item + " ");
+                });
             }
         }
     }
