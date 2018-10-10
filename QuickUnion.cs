@@ -8,7 +8,8 @@ namespace Algorithms
     {
         private int[] id;
         private int[] sz;
-        private bool isAllConnected
+
+        public bool IsAllConnected
         {
             get
             {
@@ -66,7 +67,7 @@ namespace Algorithms
                 sz[i] += sz[j];
             }
 
-            if (isAllConnected)
+            if (IsAllConnected)
             {
                 Console.WriteLine("All elements are connected:");
                 for (int index = 0; index < id.Length; index++)

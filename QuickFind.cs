@@ -8,6 +8,21 @@ namespace Algorithms
     {
         private int[] id;
 
+        public bool IsAllConnected
+        {
+            get
+            {
+                for (int i = 1; i < id.Length; i++)
+                {
+                    if (!Connected(id[i - 1], id[i]))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+
         public QuickFind(int n)
         {
             this.id = new int[n];
@@ -47,6 +62,21 @@ namespace Algorithms
                 {
                     id[i] = qid;
                 }
+            }
+
+            if (IsAllConnected)
+            {
+                Console.WriteLine("All elements are connected:");
+                for (int index = 0; index < id.Length; index++)
+                {
+                    Console.Write(index + " ");
+                }
+                Console.WriteLine();
+                Array.ForEach(id, item =>
+                {
+                    Console.Write(item + " ");
+                });
+                Console.WriteLine();
             }
         }
     }

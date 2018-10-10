@@ -52,6 +52,12 @@ namespace Algorithms
 
             Console.WriteLine($"Max element for component containg 2 is {qf.Find(2)}");
             Console.WriteLine($"Max element for component containg 3 is {qf.Find(3)}");
+
+            qf.Union(0, 3);
+            qf.Union(0, 4);
+            qf.Union(2, 5);
+            qf.Union(6, 9);
+            qf.Union(1, 7);
         }
     }
 }
