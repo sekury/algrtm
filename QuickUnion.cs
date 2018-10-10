@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Algorithms
@@ -77,7 +78,24 @@ namespace Algorithms
                 {
                     Console.Write(item + " ");
                 });
+                Console.WriteLine();
             }
+        }
+
+        public int Find(int i)
+        {
+            var componentRoot = root(i);
+            var elements = new List<int>();
+
+            for (int j = 0; j < id.Length; j++)
+            {
+                if (root(j) == componentRoot)
+                {
+                    elements.Add(j);
+                }
+            }
+            Console.WriteLine($"{{{string.Join(", ", elements)}}}");
+            return elements.Max();
         }
     }
 }
