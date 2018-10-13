@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Algorithms
 {
@@ -8,6 +9,33 @@ namespace Algorithms
         {
             RunQuickFind();
             RunQuickUnion();
+            RunSuccessWithDelete();
+        }
+
+        private static void RunSuccessWithDelete()
+        {
+            var swd = new SuccesorWithDelete(10);
+            PrintSuccessorWithDeleteState(swd);
+            swd.Delete(0);
+            PrintSuccessorWithDeleteState(swd);
+            swd.Delete(4);
+            PrintSuccessorWithDeleteState(swd);
+            swd.Delete(5);
+            PrintSuccessorWithDeleteState(swd);
+            swd.Delete(9);
+            PrintSuccessorWithDeleteState(swd);
+        }
+
+        private static void PrintSuccessorWithDeleteState(SuccesorWithDelete swd)
+        {
+            Console.WriteLine("Succesors:");
+            Array.ForEach(Enumerable.Range(0, 10).ToArray(), (x) =>
+            {
+                if (swd.Successor(x, out int y))
+                {
+                    Console.WriteLine($"Succesor of {x} is {y}");
+                }
+            });
         }
 
         private static void RunQuickUnion()
