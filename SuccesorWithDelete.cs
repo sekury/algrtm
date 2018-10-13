@@ -55,8 +55,8 @@ namespace Algorithms
                 {
                     id[p] = p;
                 }
-                id[x] = x;
             }
+            id[x] = x;
         }
     }
 }

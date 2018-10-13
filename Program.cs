@@ -24,6 +24,11 @@ namespace Algorithms
             PrintSuccessorWithDeleteState(swd);
             swd.Delete(9);
             PrintSuccessorWithDeleteState(swd);
+            swd.Delete(1);
+            swd.Delete(3);
+            swd.Delete(6);
+            swd.Delete(7);
+            PrintSuccessorWithDeleteState(swd);
         }
 
         private static void PrintSuccessorWithDeleteState(SuccesorWithDelete swd)
